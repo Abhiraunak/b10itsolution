@@ -1,9 +1,27 @@
+"use client"
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Page() {
+    const navItems = [
+        {
+            title: 'About us',
+            href: "/about"
+        },
+        {
+            title: 'Contact us',
+            href: "/contact"
+        },
+        {
+            title: 'Services',
+            href: "/services"
+        }
+    ]
+    const [hovered, setHovered] = useState<number | null>(null);
     return (
-        <nav className="flex flex-row justify-between items-center p-4 fixed inset-x-0 top-0 z-50 mx-auto bg-white/95 px-4 py-2 shadow-[var(--shadow-input)]">
+        <nav className="fixed inset-x-0 top-0 z-50 mx-auto max-w-7xl flex items-center justify-between  px-4 py-2 p-2 mt-2 bg-white rounded-md shadow-md">
             <div className="font-bold">
                 <Link href="/" className="block">
                     <Image
@@ -17,20 +35,28 @@ export default function Page() {
                 </Link>
             </div>
 
-            <div className="flex flex-row justify-between gap-5">
-                <Link href="/about" className="text-neutral-800 font-medium hover:text-black cursor-pointer">
-                    About us
-                </Link>
-                <Link href="/contact" className="text-neutral-800 font-medium hover:text-black cursor-pointer">
-                    Contact us
-                </Link>
-                <Link href="/services" className="text-neutral-800 font-medium hover:text-black cursor-pointer">
-                    Services
-                </Link>
-            </div>
+            <motion.div className="flex items-center">
+                {navItems.map((item, idx) => (
+                    <Link
+                        key={idx}
+                        href={item.href}
+                        onMouseEnter={() => setHovered(idx)}
+                        onMouseLeave={() => setHovered(null)}
+                        className="relative px-2 py-1 gap-2 text-neutral-800 text-md">
+
+                        {hovered === idx && (
+                            <motion.span
+                                layoutId="hoverBackground"
+                                initial={false}
+                                className="h-full w-full absolute inset-0 rounded-xl bg-[#6c63fa]" />
+                        )}
+                        <span className="relative z-10 text-lg font-semibold tracking-wide leading-0.5 hover:text-white"> {item.title}</span>
+                    </Link>
+                ))}
+            </motion.div>
 
             <div>
-                <button className="px-6 py-2 text-center font-medium transition duration-150 active:scale-[0.98] text-white bg-neutral-800 rounded-xl cursor-pointer">
+                <button className="px-6 py-2 text-center font-medium transition duration-150 active:scale-[0.98] text-white bg-[#6c63fa] rounded-xl cursor-pointer">
                     Get in touch
                 </button>
             </div>
