@@ -13,13 +13,13 @@ export const Card = ({ className, children }: {
 
 export const CardSkelton = ({ className, children }: {
     className?: string;
-    children: string;
+    children: React.ReactNode;
 }) => {
     return (<div className={cn(
         "h-60 w-full bg-gray-50 rounded-lg overflow-hidden my-4",
         "bg-[radial-gradient(#e5e5e5_1px,transparent_1px)]",
         "bg-size-[10px_10px]",
-        "mask-radial-from-35%",
+        // "mask-radial-from-35%",
         className
     )}>
         {children}
@@ -38,7 +38,7 @@ export const CardTitle = ({className, children}:{
     children: React.ReactNode
 }) =>{
     return(
-        <div className={cn("font-medium text-lg tracking-tight", className)}>{children}</div>
+        <div className={cn("font-medium font-prata text-lg tracking-tight", className)}>{children}</div>
     )
 }
 
@@ -47,7 +47,7 @@ export const CardDescription = ({className, children}:{
     children: React.ReactNode
 }) => {
     return(
-        <p className={cn("text-base text-neutral-400", className)}>{children}</p>
+        <p className={cn("text-base text-neutral-500 font-open-sans", className)}>{children}</p>
     )
 }
 

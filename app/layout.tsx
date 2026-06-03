@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Prata, Open_Sans } from "next/font/google";
+import { Prata, Open_Sans, Courgette } from "next/font/google";
 import "./globals.css";
 
 const prata = Prata({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-prata', 
+});
+const courgette = Courgette({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
@@ -28,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${prata.variable} ${openSans.variable} h-full antialiased`}
+      className={`${prata.variable} ${openSans.variable} ${courgette.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
