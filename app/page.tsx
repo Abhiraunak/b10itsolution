@@ -1,17 +1,24 @@
 import AnimatedProgrammingSVG from "@/component/AnimatedProgrammingSVG";
 import Appbar from "@/component/appbar";
+import FAQSection from "@/component/faq";
 import Footer from "@/component/footer";
-import { LogoCarousel } from "@/component/logoCarousel";
+import Portfolio from "@/component/portfolioffer";
 import Services from "@/component/services";
 import { Testonomial } from "@/component/testinomial";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
       <Appbar />
-      <img src="/background.png" alt="background_image" className="absolute inset-0 w-full h-full
-                         object-cover mask-radial-from-50% mask-b-from-10% mask-t-from-90% select-none pointer-events-none"/>
+      <Image
+        src="/background.png"
+        alt="background_image"
+        fill
+        priority
+        className="absolute inset-0 w-full h-full object-cover mask-radial-from-50% mask-b-from-10% mask-t-from-90% select-none pointer-events-none"
+      />
 
       <main className="relative w-full max-w-7xl px-6 mx-auto mt-20 md:mt-40">
 
@@ -45,38 +52,29 @@ export default function Home() {
           </div>
         </div>
       </main >
-      <div className="relative w-full max-w-6xl mx-auto px-6 py-16 -mt-20 flex flex-col items-center justify-center bg-blue-100 text-white z-40 rounded-2xl shadow-2xl font-open-sans border border-white/10">
 
-        {/* Header Section */}
-        <div className="text-center mb-12 space-y-3">
-          <h2 className="font-bold text-4xl md:text-5xl tracking-tight text-gray-800 selection:bg-amber-200 selection:text-amber-900">
-            Our Tech Stack
-          </h2>
-          {/* Optional: A subtle subtitle helps ground the large heading */}
-          <p className="text-neutral-600 text-lg md:text-xl font-light max-w-xl mx-auto selection:bg-amber-200 selection:text-amber-900">
-            Built with modern tools for maximum performance.
-          </p>
-        </div>
-
-        {/* Carousel Container */}
-        <div className="w-full max-w-5xl mx-auto flex items-center">
-          <LogoCarousel columnCount={5} />
-        </div>
-
-      </div>
+      <section className="relative h-screen w-full overflow-hidden [--pattern:var(--color-neutral-300)]  -mt-25 border-y border-(--pattern)">
+        <Portfolio />
+      </section>
       <section className="relative my-20">
+
         <div className="mx-auto w-full max-w-5xl px-4 py-5">
           <div className="mb-10">
-            <h1 className="text-4xl text-center font-bold tracking-tight text-neutral-700">Everything Required to Succeed Online.</h1>
-            <p className="mx-auto max-w-lg text-center text-lg text-neutral-600 mt-4">Complete design and development services to build, launch, and grow your digital product.</p>
+            <h1 className="text-5xl text-center font-bold tracking-tight text-neutral-700">Everything Required to <span className="text-[#6c63fa]">Succeed Online.</span></h1>
+            <p className="mx-auto max-w-xl text-center text-base leading-7 text-neutral-600 md:text-lg mt-4">Complete design and development services to build, launch, and grow your digital product.</p>
           </div>
         </div>
         <Services />
       </section>
 
-      <section className="relative max-w-7xl mx-auto w-full my-10">
-        <div className="mb-5">
+      <section className="relative max-w-7xl mx-auto w-full">
+        <div className="">
           <Testonomial />
+        </div>
+      </section>
+      <section className="relative max-w-7xl mx-auto w-full">
+        <div className="mb-5">
+          <FAQSection />
         </div>
       </section>
 
