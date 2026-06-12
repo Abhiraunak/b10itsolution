@@ -70,7 +70,7 @@ export function Testonomial() {
                     {reviews.map((review) => (
                         <div
                             key={review.id}
-                            className="group rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#6c63fa]/30 hover:shadow-xl"
+                            className="group rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
                         >
                             <Quote className="mb-6 h-8 w-8 text-[#6c63fa]" />
 
