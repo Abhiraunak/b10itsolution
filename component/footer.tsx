@@ -102,8 +102,8 @@ export default function Footer() {
                     </p>
 
                     <div className="flex items-center gap-6 text-sm font-light text-zinc-200 order-2 md:order-2">
-                        <a href="mailto:info@b10itsolution.com" className="hover:text-zinc-500 transition-colors duration-200">
-                            info@b10itsolution.com
+                        <a href="mailto:beautyofficialindia@gmail.com" className="hover:text-zinc-500 transition-colors duration-200">
+                            beautyofficialindia@gmail.com
                         </a>
                         <span className="text-zinc-300">|</span>
                         <Link href="#" className="hover:text-zinc-500 transition-colors duration-200">
@@ -119,7 +119,7 @@ export default function Footer() {
                         <a href="#" aria-label="Instagram" className="hover:-translate-y-0.5 transition-all duration-200">
                             <BsInstagram className="w-4.5 h-4.5" />
                         </a>
-                        <a href="#" aria-label="LinkedIn" className="hover:-translate-y-0.5 transition-all duration-200">
+                        <a href="https://www.linkedin.com/company/b10-it-solution/" aria-label="LinkedIn" className="hover:-translate-y-0.5 transition-all duration-200">
                             <FaLinkedin className="w-4.5 h-4.5" />
                         </a>
                     </div>

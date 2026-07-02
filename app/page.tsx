@@ -59,9 +59,9 @@ export default function Home() {
       </section>
       <section className="relative z-10 w-full bg-white py-24 md:py-32">
         <div className="mx-auto flex max-w-7xl flex-col items-center px-6">
-          <div className="mb-16 max-w-3xl text-center">
-            <h2 className="text-4xl font-medium tracking-tight text-zinc-950 md:text-5xl lg:text-6xl">
-              Everything required to succeed online.
+          <div className="mb-16 max-w-4xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-neutral-800 md:text-5xl">
+              Everything required to succeed online
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-lg font-light leading-relaxed text-zinc-500">

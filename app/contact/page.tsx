@@ -58,7 +58,7 @@ export default function Page() {
                             <MdEmail className="w-6 h-6 sm:w-7 sm:h-7 mt-1 text-neutral-800 shrink-0" />
                             <div>
                                 <h2 className="text-lg sm:text-xl font-semibold text-[#6c63fa] font-prata mb-1 tracking-wide break-all">
-                                    mail@b10itsolution.com
+                                    beautyofficialindia@gmail.com
                                 </h2>
                             </div>
                         </div>
@@ -76,7 +76,7 @@ export default function Page() {
                             <a href="#" aria-label="Instagram" className="text-neutral-800 hover:text-pink-600 hover:-translate-y-1 transition-all duration-200">
                                 <BsInstagram className="w-5 h-5 sm:w-6 sm:h-6" />
                             </a>
-                            <a href="#" aria-label="LinkedIn" className="text-neutral-800 hover:text-blue-600 hover:-translate-y-1 transition-all duration-200">
+                            <a href="https://www.linkedin.com/company/b10-it-solution/" aria-label="LinkedIn" className="text-neutral-800 hover:text-blue-600 hover:-translate-y-1 transition-all duration-200">
                                 <FaLinkedin className="w-6 h-6 sm:w-7 sm:h-7" />
                             </a>
                         </div>
