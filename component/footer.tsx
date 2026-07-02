@@ -1,4 +1,4 @@
-import { BsTwitterX, BsInstagram } from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa6";
 import { RxArrowRight } from "react-icons/rx";
 import Image from "next/image";
