@@ -6,6 +6,7 @@ import { Input } from "@/component/Utility/Input";
 import { Label } from "@/component/Utility/Label";
 import { useState } from "react";
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
     const [name, setName] = useState("");
@@ -14,6 +15,10 @@ export default function Page() {
     const [message, setMessage] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [status, setStatus] = useState({ type: "", message: "" });
+    const [showModal, setShowModal] = useState(false);
+
+    const router = useRouter();
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -34,6 +39,8 @@ export default function Page() {
             }
 
             setStatus({ type: "success", message: "Thank you! Your message has been received." });
+
+            setShowModal(true); // Trigger the success modal instead of just setting the inline status
             // Reset input values
             setName("");
             setEmail("");
@@ -227,6 +234,7 @@ export default function Page() {
                                 }}
                             />
                         </Group>
+                        
 
                         {/* Inline Status Messages */}
                         {status.message && (
@@ -237,7 +245,12 @@ export default function Page() {
 
                         <button
                             type="submit"
-                            className="mt-2 sm:mt-4 w-full bg-linear-to-t from-[#28288d] to-[#4040a1] text-white font-semibold text-base sm:text-lg py-3 sm:py-4 px-6 rounded-xl shadow-md hover:shadow-lg hover:from-[#212175] hover:to-[#28288d] transition-all duration-200 active:scale-[0.98] cursor-pointer"
+                            disabled={isSubmitting}
+                            className={`mt-2 sm:mt-4 w-full bg-linear-to-t from-[#28288d] to-[#4040a1] text-white font-semibold text-base sm:text-lg py-3 sm:py-4 px-6 rounded-xl shadow-md transition-all duration-200 ${
+                                isSubmitting 
+                                    ? "opacity-70 cursor-not-allowed" 
+                                    : "hover:shadow-lg hover:from-[#212175] hover:to-[#28288d] active:scale-[0.98] cursor-pointer"
+                            }`}
                         >
                             {isSubmitting ? "Processing..." : "Send Message"}
                         </button>
@@ -247,6 +260,38 @@ export default function Page() {
             </section>
 
             <Footer />
+            {showModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="bg-white p-8 sm:p-10 rounded-2xl shadow-2xl max-w-sm w-full flex flex-col items-center text-center"
+                    >
+                        {/* Success Icon */}
+                        <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-5">
+                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2 font-prata">Thank You!</h3>
+                        <p className="text-gray-600 mb-8 font-open-sans">
+                            Your message has been received. We will get back to you shortly.
+                        </p>
+
+                        <button
+                            onClick={() => {
+                                setShowModal(false);
+                                router.push("/"); // Redirect to landing page
+                            }}
+                            className="w-full bg-[#28288d] hover:bg-[#212175] text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-200"
+                        >
+                            Back to Homepage
+                        </button>
+                    </motion.div>
+                </div>
+            )}
         </div>
     )
 }
